@@ -64,6 +64,16 @@ nav .nav-link
         justify-content: center;
         margin-bottom: auto;
     }
+    /* Hide infobar on phone screens and center buttons */
+    .card
+    {
+        display: none;
+    }
+    .infoContainer
+    {
+        display: none;
+    }
+   
 }
 @media (max-width: 950px)
 {
