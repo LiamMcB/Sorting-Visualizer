@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Sorting Visualizer</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-md navbar-light bg-light border h-5">
+            <a class="navbar-brand" id="pageTitle">Sorting Visualizer</a>
+            <!-- Make responsive nav with navbar toggler-->
+            <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav mr-auto mt-2">
+                        <li class="nav-item"><a class="nav-link" id="bubble">Bubble Sort</a></li>
+                        <li class="nav-item"><a class="nav-link" id="selection">Selection Sort</a></li>
+                        <li class="nav-item"><a class="nav-link" id="insertion">Insertion Sort</a></li>
+                        <li class="nav-item"><a class="nav-link" id="merge">Merge Sort</a></li>
+                    </ul>
+                    
+                    <div class="border bg-light shadow-sm">
+                        <ul class="navbar-nav mx-3">
+                            <!-- Slider to change array size -->
+                            <li id="changeArr" class="nav-item mt-2 text-center">
+                                Change Array Size
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav mt-0 mx-3">
+                            <li class="nav-item">
+                                <input type="range" min="4" max="250" value="125" id="myRange" onclick="arrayGenerator()">
+                                <div id="slideVal" class="nav-item text-center">
+                            </li>
+                        </ul>
+                    </div>
+
+                    <ul class="navbar-nav ml-auto mt-2 startbuttons">
+                        <!-- Buttons to generate a random array and sort-->
+                        <button class="btn btn-primary text-light mb-1" onclick="arrayGenerator()" id="arrGen">Generate Random Array</button>
+                        <button class="btn btn-primary mx-2 mb-auto" id="sort" disabled onclick="sortFun()">Sort</button>
+
+                    </ul>
+            </div>
+        </nav>
+
+        <!-- Main content of the page with info bar and dynamic bar chart-->
+        <main class="container-fluid pt-3 px-4">
+
+            <div class="row">
+                <div class="col-5">
+                <!-- Information box with info about each element when hovered over -->
+                    <div class="card">
+                        <div class="card-header">Information Bar</div>
+                        <div id="infoBar" class="card-title"></div>
+                    </div>
+                </div>
+                
+                <!-- Dropdown menu for sorting speed-->
+                <div class="btn-group dropright">
+                    <button class="btn btn-warning dropdown-toggle" id="speed" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Speed
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="speed">
+                        <a class="dropdown-item" id="veryslow" onclick="speedSort(this.id)">Very Slow</a>
+                        <a class="dropdown-item" id="slow" onclick="speedSort(this.id)">Slow</a>
+                        <a class="dropdown-item" id="medium" onclick="speedSort(this.id)">Medium (default)</a>
+                        <a class="dropdown-item" id="fast" onclick="speedSort(this.id)">Fast</a>
+                        <a class="dropdown-item" id="veryfast" onclick="speedSort(this.id)">Very Fast</a>
+                    </div>
+                </div>
+
+                <!-- Where arrGen and sort buttons will go on phones-->
+                <div class = "col mobilebuttons">
+                    <ul class="navbar-nav mt-2 ml-auto">
+                        <!-- Buttons to generate a random array and sort-->
+                        <button class="btn btn-primary text-light py-4 mb-2" onclick="arrayGenerator()" id="arrGenMobile">Generate Random Array</button>
+                        <button class="btn btn-primary py-4" id="sortMobile" disabled onclick="sortFun()">Sort</button>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bar Graph with dynamic number of vertical bars-->
+            <div class="container bg-light my-4 pt-2 px-1 d-flex align-items-end justify-content-center flex-row w-100" id="graph">
+                <!-- Vertical Bars go here, these are just initial bars that get deleted -->
+                <h1 class="mb-auto mr-auto">Change Array Size to Get Started!</h1>
+                <div class="vertbar">
+                    <h2 class="numdiv">S</h2>
+                </div>
+                <div class="vertbar">
+                    <h2 class="numdiv">O</h2>
+                </div>
+                <div class="vertbar">
+                    <h2 class="numdiv">R</h2>
+                </div>
+                <div class="vertbar">
+                    <h2 class="numdiv">T</h2>
+                </div>
+            </div>
+        </main>
+
+        <!-- Bootstrap requires some jQuery and Popper.js -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+        <!-- JS for the sorting visualizer-->
+        <script src="app.js"></script>
+    </body>
+</html>
