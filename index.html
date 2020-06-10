@@ -21,10 +21,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbar">
                     <ul class="navbar-nav mr-auto mt-2">
-                        <li class="nav-item"><a class="nav-link" id="bubble">Bubble Sort</a></li>
-                        <li class="nav-item"><a class="nav-link" id="selection">Selection Sort</a></li>
-                        <li class="nav-item"><a class="nav-link" id="insertion">Insertion Sort</a></li>
-                        <li class="nav-item"><a class="nav-link" id="merge">Merge Sort</a></li>
+                        <li class="nav-item"><a class="nav-link" id="bubble" enabled>Bubble Sort</a></li>
+                        <li class="nav-item"><a class="nav-link" id="selection" enabled>Selection Sort</a></li>
+                        <li class="nav-item"><a class="nav-link" id="insertion" enabled>Insertion Sort</a></li>
+                        <li class="nav-item"><a class="nav-link" id="merge" enabled>Merge Sort</a></li>
                     </ul>
                     
                     <div class="border bg-light shadow-sm">
@@ -36,7 +36,7 @@
                         </ul>
                         <ul class="navbar-nav mt-0 mx-3">
                             <li class="nav-item">
-                                <input type="range" min="4" max="250" value="125" id="myRange" onclick="arrayGenerator()">
+                                <input type="range" min="4" max="250" value="125" id="myRange" onclick="arrayGenerator()" enabled>
                                 <div id="slideVal" class="nav-item text-center">
                             </li>
                         </ul>
@@ -44,7 +44,7 @@
 
                     <ul class="navbar-nav ml-auto mt-2 startbuttons">
                         <!-- Buttons to generate a random array and sort-->
-                        <button class="btn btn-primary text-light mb-1" onclick="arrayGenerator()" id="arrGen">Generate Random Array</button>
+                        <button class="btn btn-primary text-light mb-1" onclick="arrayGenerator()" id="arrGen" enabled>Generate Random Array</button>
                         <button class="btn btn-primary mx-2 mb-auto" id="sort" disabled onclick="sortFun()">Sort</button>
 
                     </ul>

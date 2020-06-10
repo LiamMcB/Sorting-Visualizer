@@ -253,6 +253,12 @@ function sleep(ms) {
 /* Bubble Sort Algorithm */
 async function bubbleSort(arr)
 {
+  // Make it so other algorithms can't be run at the same time
+  finished = false;
+  sort.disabled = true;
+  arrGen.disabled = true;
+  slider.disabled = true;
+
   let temp = [];
   for (let i=0; i < arrSize; i++) {
     for (let j=i+1; j < arrSize; j++) {
@@ -268,12 +274,24 @@ async function bubbleSort(arr)
   for (let w=0; w<arrSize; w++) {
     vertbar[w].style.backgroundColor = sortColor;
   }
+
+  finished = true;
+  sort.disabled = false;
+  arrGen.disabled = false;
+  slider.disabled = false;
+
   return arr;
 }
 
 /* Selection Sort Algorithm */
 async function selectionSort(arr)
 {
+  // Make it so other algorithms can't be run at the same time
+  finished = false;
+  sort.disabled = true;
+  arrGen.disabled = true;
+  slider.disabled = true;
+
   // Set first value equal to minimum, if any number in list is less than the min, move it to the front
   for (let i=0; i < arrSize; i++) {
     let minInd = i;
@@ -296,12 +314,22 @@ async function selectionSort(arr)
   for (let w=0; w<arrSize; w++) {
     vertbar[w].style.backgroundColor = sortColor;
   }
+  finished = true;
+  sort.disabled = false;
+  arrGen.disabled = false;
+  slider.disabled = false;
 
   return arr;
 }
 
 /* Insertion sort algorithm */
 async function insertionSort(arr) {
+  // Make it so other algorithms can't be run at the same time
+  finished = false;
+  sort.disabled = true;
+  arrGen.disabled = true;
+  slider.disabled = true;
+
   for (let i=1; i < arrSize; i++) {
     let j = i;
     // While an array index is less than what is to its left, shift it left
@@ -316,6 +344,11 @@ async function insertionSort(arr) {
   for (let w=0; w<arrSize; w++) {
     vertbar[w].style.backgroundColor = sortColor;
   }
+
+  sort.disabled = false;
+  arrGen.disabled = false;
+  finished = true;
+  slider.disabled = false;
 
   return arr;   
 }
@@ -386,6 +419,12 @@ function merger(arrOne, arrTwo)
 /* Visualizes merge sort with history array */
 async function mergeVisual(unsortedArr)
 {
+  // Make it so other algorithms can't be run at the same time
+  finished = false;
+  sort.disabled = true;
+  arrGen.disabled = true;
+  slider.disabled = true;
+
   let i, j; 
   let w = 0; // must initialize this since we start at the beginning of the array
   // Must re-call mergeSort since mergehistory isn't cleared everytime it is called
@@ -483,8 +522,11 @@ async function mergeVisual(unsortedArr)
     vertbar[i].style.backgroundColor = sortColor;
     await sleep(30);
   }
-  
 
+  sort.disabled = false;
+  arrGen.disabled = false;
+  slider.disabled = false;
+  finished = true;
 }
 
 
@@ -535,18 +577,33 @@ async function swapHeight(arr, i, j)
 function sortFun()
 {
   // Chosen sorting algorithm is black
-  if (bubble.style.color=='black') {
+  if (bubble.style.color=='black' && isFinished()) {
     bubbleSort(arr);
   }
-  if (selection.style.color=='black') {
+  if (selection.style.color=='black' && isFinished()) {
     selectionSort(arr);
   }
-  if (insertion.style.color=='black') {
+  if (insertion.style.color=='black' && isFinished()) {
     insertionSort(arr);
   }
-  if (merge.style.color=='black') { 
+  if (merge.style.color=='black' && isFinished()) { 
     // Call mergesort to sort array and get history array for visualizer
     let unsortedArr = arr;
     mergeVisual(unsortedArr);
   }
+
+}
+
+// Disables arrGen and other sort algorithms from being clicked while sort is running
+var finished = true;
+
+function isFinished()
+{
+  if (!arr) {
+    return false;
+  }
+  while (finished == true) {
+    return true;
+  }
+
 }
