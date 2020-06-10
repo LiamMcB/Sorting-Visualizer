@@ -258,6 +258,8 @@ async function bubbleSort(arr)
   sort.disabled = true;
   arrGen.disabled = true;
   slider.disabled = true;
+  sortMobile.disabled = true;
+  arrGenMobile.disabled = true;
 
   let temp = [];
   for (let i=0; i < arrSize; i++) {
@@ -279,6 +281,8 @@ async function bubbleSort(arr)
   sort.disabled = false;
   arrGen.disabled = false;
   slider.disabled = false;
+  sortMobile.disabled = false;
+  arrGenMobile.disabled = false;
 
   return arr;
 }
@@ -291,6 +295,8 @@ async function selectionSort(arr)
   sort.disabled = true;
   arrGen.disabled = true;
   slider.disabled = true;
+  sortMobile.disabled = true;
+  arrGenMobile.disabled = true;
 
   // Set first value equal to minimum, if any number in list is less than the min, move it to the front
   for (let i=0; i < arrSize; i++) {
@@ -318,6 +324,8 @@ async function selectionSort(arr)
   sort.disabled = false;
   arrGen.disabled = false;
   slider.disabled = false;
+  sortMobile.disabled = false;
+  arrGenMobile.disabled = false;
 
   return arr;
 }
@@ -329,6 +337,8 @@ async function insertionSort(arr) {
   sort.disabled = true;
   arrGen.disabled = true;
   slider.disabled = true;
+  sortMobile.disabled = true;
+  arrGenMobile.disabled = true;
 
   for (let i=1; i < arrSize; i++) {
     let j = i;
@@ -349,6 +359,8 @@ async function insertionSort(arr) {
   arrGen.disabled = false;
   finished = true;
   slider.disabled = false;
+  sortMobile.disabled = false;
+  arrGenMobile.disabled = false;
 
   return arr;   
 }
@@ -424,6 +436,8 @@ async function mergeVisual(unsortedArr)
   sort.disabled = true;
   arrGen.disabled = true;
   slider.disabled = true;
+  sortMobile.disabled = true;
+  arrGenMobile.disabled = true;
 
   let i, j; 
   let w = 0; // must initialize this since we start at the beginning of the array
@@ -527,6 +541,8 @@ async function mergeVisual(unsortedArr)
   arrGen.disabled = false;
   slider.disabled = false;
   finished = true;
+  sortMobile.disabled = false;
+  arrGenMobile.disabled = false;
 }
 
 
