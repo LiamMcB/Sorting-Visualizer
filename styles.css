@@ -73,6 +73,11 @@ nav .nav-link
     {
         display: none;
     }
+    /* Hide slider on phones, since it will take up too much space and complicate the UI */
+    .slidecontainer
+    {
+        display: none;
+    }
    
 }
 @media (max-width: 950px)
