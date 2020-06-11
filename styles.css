@@ -85,6 +85,10 @@ nav .nav-link
     {
         display: none;
     }
+    .numdiv, .numdivshort
+    {
+        display:none;
+    }
 }
 
 /* When the screen is bigger than 950px */

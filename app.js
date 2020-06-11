@@ -6,7 +6,8 @@ var output = document.getElementById("slideVal");
 output.innerHTML = slider.value; // Display the default slider value
 
 // Get the number of array elements the user wants //
-var arrSize = 125;
+var defaultSize = 25;
+var arrSize = defaultSize;
 
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function() {
@@ -16,8 +17,8 @@ slider.oninput = function() {
 
 // Change value back to 500 on double click
 slider.ondblclick = function() {
-  slider.value = 125;
-  output.innerHTML = 125;
+  slider.value = defaultSize;
+  output.innerHTML = defaultSize;
   arrSize = parseInt(output.innerHTML);
 }
 
